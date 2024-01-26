@@ -7,10 +7,13 @@ from st_audiorec import st_audiorec
 
 @st.cache
 def load_data_HEA_exp():
-    return pipeline("automatic-speech-recognition", model="Salama1429/KalemaTech-Arabic-STT-ASR-based-on-Whisper-Small")
+    global stt_pipeline
+    stt_pipeline = pipeline("automatic-speech-recognition", model="Salama1429/KalemaTech-Arabic-STT-ASR-based-on-Whisper-Small")
+    #return pipeline("automatic-speech-recognition", model="Salama1429/KalemaTech-Arabic-STT-ASR-based-on-Whisper-Small")
+
+
 
 def transcribe_audio(audio_array):
-    stt_pipeline = pipeline("automatic-speech-recognition", model="Salama1429/KalemaTech-Arabic-STT-ASR-based-on-Whisper-Small")
 
     transcription = stt_pipeline(audio_array)
 
